@@ -41,13 +41,11 @@ public class Main {
 
         // Segundo algoritmo:
         /* Se requiere un algoritmo para obtener la suma de diez cantidades mediante la utilización de un ciclo for */
+        String num = "";
+        int suma = 0;
         ArrayList<Integer> numeros = new ArrayList<>();
         for (int i = 0; i <= 9; i++) {
             numeros.add((int)Math.floor(Math.random()*(5-20)+20));
-        }
-        String num = "";
-        int suma = 0;
-        for (int i = 0; i < numeros.size(); i++) {
             suma += numeros.get(i);
             num += numeros.get(i) + ", ";
         }
@@ -56,7 +54,29 @@ public class Main {
         // Tercer algoritmo:
         /* Se requiere un algoritmo para obtener la estatura promedio de un grupo de personas, cuyo número
         de miembros se desconoce, el ciclo debe efectuarse siempre y cuando se tenga una estatura registrada. */
+        go = true;
+        double estaturaPromedio = 0;
+        double estatura = 0;
+        int contadorMiembros = 0;
+        while(go) {
+            try {
+                System.out.print("Ingrese estatura de la persona: ");
+                estatura += scan.nextDouble();
+                contadorMiembros++;
+                estaturaPromedio = estatura / contadorMiembros;
 
-
+                if (contadorMiembros >= 2) {
+                    System.out.print("¿Desea continuar? \n Presione 1, para continuar \n Presione 2, para detenerse y ver promedio de estaturas\n Su respuesta: ");
+                    int res = scan.nextInt();
+                    go = res == 1;
+                }
+            } catch (Exception e) {
+                go = false;
+                System.out.println("\n---------------------------------------------------------------------");
+                System.out.println("Se produjo un error en el sistema. No se ingresó una estatura válida.");
+                System.out.println("---------------------------------------------------------------------\n");
+            }
+        }
+        System.out.println("Estatura promedio: " + estaturaPromedio);
     }
 }
