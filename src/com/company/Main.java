@@ -78,5 +78,60 @@ public class Main {
             }
         }
         System.out.println("Estatura promedio: " + estaturaPromedio);
+
+        // Cuarto algoritmo:
+        /* Se requiere un algoritmo para determinar, de N cantidades, cuántas son menores o iguales a cero y cuántas mayores a cero. */
+        go = true;
+        int contadorMenores = 0;
+        int contadorMayores = 0;
+        int edad = 0;
+        while (go) {
+            System.out.print("Ingresa la edad: ");
+            edad = scan.nextInt();
+            if (edad <= 0) {
+                contadorMenores++;
+            } else {
+                contadorMayores++;
+            }
+            System.out.print("¿Ingresar más datos? \n 1, para continuar \n 2, para detener y mostrar resultados. \n\n Su respuesta: ");
+            int res = scan.nextInt();
+            go = res == 1;
+        }
+        System.out.println("Número de menores o iguales a cero: " + contadorMenores + "; número de mayores a cero: " + contadorMayores + ". Total datos ingresados: " + (contadorMayores + contadorMenores) + "\n");
+
+        // Quinto algoritmo:
+        /* Realice un algoritmo para generar e imprimir los números pares e impares que se encuentran entre 0 y 100. Además muestre la multiplicación de todos estos. */
+
+        String pares = "";
+        String impares = "";
+
+        for (int i = 0; i <= 100; i++) {
+            if ((i % 2) == 0) {
+                pares += i + ", ";
+            } else {
+                impares += i + ", ";
+            }
+        }
+        System.out.println("Números pares: " + pares);
+        System.out.println("Números impares: " + impares);
+
+
+        int primeraCifra = 0;
+        int segundaCifra = 1;
+        int resultado = 0;
+        int repeticiones = 0;
+        String serie = "0, 1, ";
+
+        System.out.print("Ingrese número de secuencias para la serie Fibonacci: ");
+        repeticiones = scan.nextInt();
+        
+        for (int i = 0; i <= repeticiones; i++) {
+            resultado = primeraCifra + segundaCifra;
+            primeraCifra = segundaCifra;
+            segundaCifra = resultado;
+            serie += (i == repeticiones) ? resultado + "." : resultado + ", ";
+        }
+        System.out.println(serie);
+        scan.close();
     }
 }
